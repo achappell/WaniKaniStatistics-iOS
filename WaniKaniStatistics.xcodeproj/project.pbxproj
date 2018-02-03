@@ -384,7 +384,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 32W2G9KWN7;
+				DEVELOPMENT_TEAM = 37CAHGRH45;
 				INFOPLIST_FILE = WaniKaniStatistics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amplifiedprojects.WaniKaniStatistics;
@@ -399,7 +399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 32W2G9KWN7;
+				DEVELOPMENT_TEAM = 37CAHGRH45;
 				INFOPLIST_FILE = WaniKaniStatistics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amplifiedprojects.WaniKaniStatistics;
