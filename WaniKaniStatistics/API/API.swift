@@ -21,9 +21,11 @@ struct API {
                     if let data = data {
                         let levelProgression = try decoder.decode(LevelProgressions.self, from: data)
                         
-                        completion?(levelProgression.data.map({ (data) -> LevelProgression in
-                            return data.data
-                        }))
+                        DispatchQueue.main.async(execute: {() -> Void in
+                            completion?(levelProgression.data.map({ (data) -> LevelProgression in
+                                return data.data
+                            }))
+                        })
                     }
                 } catch let myError {
                     print("caught: \(myError)")
