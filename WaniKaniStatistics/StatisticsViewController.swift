@@ -24,16 +24,21 @@ class StatisticsViewController: UIViewController, ChartViewDelegate {
         API().levelProgressions { [weak self] (levels) in
             let statistics = StatisticsGenerator(levels: levels)
             self?.statistics = statistics
-            let chartDataEntry: [BarChartDataEntry] = levels.map({ (level) -> BarChartDataEntry in
-                return BarChartDataEntry(x: Double(level.level), y: statistics.levelUpTimeInDays(level))
+            
+            let validLevels = levels.filter({ (data) -> Bool in
+                data.abandoned_at == nil
             })
             
+            let chartDataEntry: [BarChartDataEntry] = validLevels.map({ (level) -> BarChartDataEntry in
+                return BarChartDataEntry(x: Double(level.level), y: statistics.levelUpTimeInDays(level))
+            })
             let chartSet: BarChartDataSet = BarChartDataSet(values: chartDataEntry, label: "Levels")
             let data = BarChartData(dataSet: chartSet)
             data.barWidth = 0.9
             self?.barChartView.data = data
             
-            self?.averageLevelUpTime.text = "Average: \(statistics.averageLevelUpTimeInDays())"
+            let daysAndHours = statistics.averageLevelUpTime().daysAndHours()
+            self?.averageLevelUpTime.text = "Average: \(daysAndHours.days) days \(daysAndHours.hours) hours"
         }
     }
 

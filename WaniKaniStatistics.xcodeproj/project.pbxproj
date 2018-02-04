@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		371242542027481500EE8BD8 /* StatisticsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371242532027481500EE8BD8 /* StatisticsGenerator.swift */; };
+		37124256202773BA00EE8BD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37124255202773BA00EE8BD8 /* User.swift */; };
+		3712425820277D5200EE8BD8 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3712425720277D5200EE8BD8 /* Date+Extensions.swift */; };
 		527A2273953EB7674FE4B5A6 /* Pods_WaniKaniStatistics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449B2B8F2391F3BBDEEC5AE8 /* Pods_WaniKaniStatistics.framework */; };
 		605FF6630CE694C136BC1F99 /* Pods_WaniKaniStatisticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348FBD97E7F1CCA840B4A9A4 /* Pods_WaniKaniStatisticsTests.framework */; };
 		C8AD4E572021077E00933548 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD4E562021077E00933548 /* AppDelegate.swift */; };
@@ -34,6 +36,8 @@
 /* Begin PBXFileReference section */
 		348FBD97E7F1CCA840B4A9A4 /* Pods_WaniKaniStatisticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaniKaniStatisticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		371242532027481500EE8BD8 /* StatisticsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsGenerator.swift; sourceTree = "<group>"; };
+		37124255202773BA00EE8BD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3712425720277D5200EE8BD8 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		449B2B8F2391F3BBDEEC5AE8 /* Pods_WaniKaniStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaniKaniStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80837DE4AC463A32D0B5B10A /* Pods-WaniKaniStatisticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniKaniStatisticsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaniKaniStatisticsTests/Pods-WaniKaniStatisticsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		98AA62FA0208C739F083C1D7 /* Pods-WaniKaniStatisticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniKaniStatisticsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaniKaniStatisticsTests/Pods-WaniKaniStatisticsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				C8AD4E612021077E00933548 /* LaunchScreen.storyboard */,
 				C8AD4E5C2021077E00933548 /* Main.storyboard */,
 				C8AD4E5A2021077E00933548 /* SecondViewController.swift */,
+				3712425720277D5200EE8BD8 /* Date+Extensions.swift */,
 			);
 			path = WaniKaniStatistics;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				C8AD4E7E20210CB500933548 /* LevelProgression.swift */,
+				37124255202773BA00EE8BD8 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -376,11 +382,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				371242542027481500EE8BD8 /* StatisticsGenerator.swift in Sources */,
+				3712425820277D5200EE8BD8 /* Date+Extensions.swift in Sources */,
 				C8AD4E5B2021077E00933548 /* SecondViewController.swift in Sources */,
 				C8AD4E572021077E00933548 /* AppDelegate.swift in Sources */,
 				C8AD4E7C20210CA500933548 /* API.swift in Sources */,
 				C8AD4E592021077E00933548 /* StatisticsViewController.swift in Sources */,
 				C8AD4E7F20210CB500933548 /* LevelProgression.swift in Sources */,
+				37124256202773BA00EE8BD8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
