@@ -15,7 +15,7 @@ class SecondViewController: UIViewController {
     @IBOutlet var levelUpInLabel: UILabel!
     @IBOutlet var averageLevelUpLabel: UILabel!
     
-    var user: UserData?
+    var user: User?
     var statistics: StatisticsGenerator = StatisticsGenerator(levels: [])
     
     override func viewDidLoad() {

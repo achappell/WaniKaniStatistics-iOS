@@ -8,15 +8,20 @@
 
 import Foundation
 
-struct LevelProgressions: Codable {
-    var data: [LevelProgression]
+struct Container<T: Codable>: Codable {
+    var data: [ContainerData<T>]
+    var total_count: Int
+}
+
+struct ContainerData<T: Codable>: Codable {
+    var data: T
+}
+
+struct UserContainer: Codable {
+    var data: User
 }
 
 struct LevelProgression: Codable {
-    var data: LevelProgressionData
-}
-
-struct LevelProgressionData: Codable {
     var created_at: String
     var level: Int
     var unlocked_at: String
@@ -33,4 +38,27 @@ struct LevelProgressionData: Codable {
         
         return formatter.date(from: started_at)
     }
+}
+
+struct User: Codable {
+    var level: Int
+}
+
+struct Assignment: Codable {
+    var created_at: String
+    var level: Int
+    var srs_stage: Int
+    var unlocked_at: String
+    var started_at: String?
+    var passed_at: String?
+    var completed_at: String?
+    var abandoned_at: String?
+}
+
+struct Summary: Codable {
+    var lessons: [Lesson]
+}
+
+struct Lesson: Codable {
+    var subject_ids: [Int]
 }

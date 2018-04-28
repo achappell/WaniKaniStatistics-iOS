@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:LessonCapEntry+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:LessonCapEntry+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:WaniKaniStatistics.xcodeproj">
    </FileRef>
    <FileRef
