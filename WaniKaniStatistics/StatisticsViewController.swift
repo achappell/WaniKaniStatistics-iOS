@@ -47,7 +47,3 @@ class StatisticsViewController: UIViewController, ChartViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 }
-
-extension StatisticsViewController {
-    
-}

@@ -12,24 +12,44 @@ struct API {
     
     let baseURL = "https://www.wanikani.com/api/v2"
 
-    func user(completion: @escaping ((UserData) -> Void)) {
+    func user(completion: @escaping ((User) -> Void)) {
         if let url = URL(string: "\(baseURL)/user") {
             let urlRequest = urlRequestWithAuthorization(url: url)
             
-            apiCall(request: urlRequest, decoderClass: User.self, completion: { (user) in
+            apiCall(request: urlRequest, decoderClass: UserContainer.self, completion: { (user) in
                 completion(user.data)
             })
         }
     }
     
-    func levelProgressions(id: Int? = nil, completion: @escaping (([LevelProgressionData]) -> Void)) {
+    func levelProgressions(id: Int? = nil, completion: @escaping (([LevelProgression]) -> Void)) {
         if let url = URL(string: "\(baseURL)/level_progressions") {
             let urlRequest = urlRequestWithAuthorization(url: url)
             
-            apiCall(request: urlRequest, decoderClass: LevelProgressions.self, completion: { (levelProgressions) in
-                completion(levelProgressions.data.map({ (data) -> LevelProgressionData in
+            apiCall(request: urlRequest, decoderClass: Container<LevelProgression>.self, completion: { (levelProgressions) in
+                completion(levelProgressions.data.map({ (data) -> LevelProgression in
                     return data.data
                 }))
+            })
+        }
+    }
+    
+    func assignments(level: Int, completion: @escaping ((Container<Assignment>) -> Void)) {
+        if let url = URL(string: "\(baseURL)/assignments?srs_stages=\(level)") {
+            let urlRequest = urlRequestWithAuthorization(url: url)
+            
+            apiCall(request: urlRequest, decoderClass: Container<Assignment>.self, completion: { (assignments) in
+                completion(assignments)
+            })
+        }
+    }
+    
+    func summary(completion: @escaping ((Summary) -> Void)) {
+        if let url = URL(string: "\(baseURL)/summary") {
+            let urlRequest = urlRequestWithAuthorization(url: url)
+            
+            apiCall(request: urlRequest, decoderClass: ContainerData<Summary>.self, completion: { (summary) in
+                completion(summary.data)
             })
         }
     }

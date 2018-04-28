@@ -10,7 +10,7 @@ import Foundation
 
 struct StatisticsGenerator {
     
-    var levels: [LevelProgressionData]
+    var levels: [LevelProgression]
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
@@ -19,7 +19,7 @@ struct StatisticsGenerator {
         return formatter
     }
     
-    init(levels: [LevelProgressionData]) {
+    init(levels: [LevelProgression]) {
         self.levels = levels
     }
     
@@ -36,12 +36,49 @@ struct StatisticsGenerator {
         return totalTime.0 / Double(totalTime.1)
     }
     
-    func levelUpTimeInDays(_ forLevel: LevelProgressionData) -> Double {
+    func levelUpTimeInDays(_ forLevel: LevelProgression) -> Double {
         if let startDate = forLevel.startedAt() {
             let endDate = dateFormatter.date(from: forLevel.passed_at ?? "") ?? Date()
             let levelUpTime = endDate.timeIntervalSince(startDate)
             return levelUpTime/60.0/60.0/24.0
         }
         return 0
+    }
+    
+    func lessonCapScore(completion:((Double) -> Void)?) {
+        var score: Double = 0.0
+        API().assignments(level: 1) { (assignment) in
+            score = score + (Double(assignment.total_count) * 6) / 2
+            
+            API().assignments(level: 2) { (assignment) in
+                score = score + (Double(assignment.total_count) * 3) / 2
+                
+                API().assignments(level: 3) { (assignment) in
+                    score = score + (Double(assignment.total_count) * 1.04) / 2
+                    
+                    API().assignments(level: 4) { (assignment) in
+                        score = score + (Double(assignment.total_count) * 0.51) / 2
+                        
+                        API().assignments(level: 5) { (assignment) in
+                            score = score + (Double(assignment.total_count) * 0.14) / 2
+                            
+                            API().assignments(level: 6) { (assignment) in
+                                score = score + (Double(assignment.total_count) * 0.07) / 2
+                                
+                                API().assignments(level: 7) { (assignment) in
+                                    score = score + (Double(assignment.total_count) * 0.03) / 2
+                                    
+                                    API().assignments(level: 8) { (assignment) in
+                                        score = score + (Double(assignment.total_count) * 0.01) / 2
+                                        
+                                        completion?(score)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

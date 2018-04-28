@@ -7,6 +7,7 @@ target 'WaniKaniStatistics' do
 
   # Pods for WaniKaniStatistics
 	pod 'Charts'
+    pod 'SwiftLint'
 
   target 'WaniKaniStatisticsTests' do
     inherit! :search_paths
