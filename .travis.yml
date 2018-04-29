@@ -1,3 +1,6 @@
 language: swift
 xcode_project: WaniKaniStatistics.xcodeproj # path to your xcodeproj folder
 xcode_scheme: WaniKaniStatistics
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

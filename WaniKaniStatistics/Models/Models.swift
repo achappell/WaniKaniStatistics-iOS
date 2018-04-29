@@ -22,13 +22,9 @@ struct UserContainer: Codable {
 }
 
 struct LevelProgression: Codable {
-    var created_at: String
     var level: Int
-    var unlocked_at: String
     var started_at: String
     var passed_at: String?
-    var completed_at: String?
-    var abandoned_at: String?
     
     func startedAt() -> Date? {
         let formatter = DateFormatter()
