@@ -47,12 +47,6 @@ struct User: Codable {
 struct Assignment: Codable {
     var created_at: String
     var level: Int
-    var srs_stage: Int
-    var unlocked_at: String
-    var started_at: String?
-    var passed_at: String?
-    var completed_at: String?
-    var abandoned_at: String?
 }
 
 struct Summary: Codable {
