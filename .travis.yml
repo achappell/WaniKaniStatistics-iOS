@@ -1,5 +1,5 @@
 language: swift
-xcode_project: WaniKaniStatistics.xcodeproj # path to your xcodeproj folder
+xcode_workspace: WaniKaniStatistics.xcworkspace
 xcode_scheme: WaniKaniStatistics
 
 after_success:
