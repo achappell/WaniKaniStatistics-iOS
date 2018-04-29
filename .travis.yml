@@ -2,6 +2,8 @@ language: swift
 osx_image: xcode9.3
 xcode_workspace: WaniKaniStatistics.xcworkspace
 xcode_scheme: WaniKaniStatistics
+script:
+  - xcodebuild -scheme WaniKaniStatistics -workspace WaniKaniStatistics.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=11.3' build test
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
