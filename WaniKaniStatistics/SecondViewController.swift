@@ -34,21 +34,25 @@ class SecondViewController: UIViewController {
                     data.level == userData.level && data.abandoned_at == nil
                 }).first
                 
-                if let level = level {
-                    let time = level.startedAt()?.daysAndHoursSinceNow() ?? (days: 0, hours: 0)
-                    
-                    self?.timeOnLevelLabel.text = "\(time.days) days \(time.hours) hours"
-                    
-                    let averageLevelUpDaysAndHours = self?.statistics.averageLevelUpTime().daysAndHours() ?? (days: 0, hours: 0)
-                    self?.averageLevelUpLabel.text = "\(averageLevelUpDaysAndHours.days) days \(averageLevelUpDaysAndHours.hours) hours"
-                    
-                    if averageLevelUpDaysAndHours.hours > time.hours {
-                        self?.levelUpInLabel.text = "\(averageLevelUpDaysAndHours.days - time.days) days \(averageLevelUpDaysAndHours.hours - time.hours) hours"
-                    } else {
-                        self?.levelUpInLabel.text = "\(averageLevelUpDaysAndHours.days - time.days - 1) days \(averageLevelUpDaysAndHours.hours + 24 - time.hours) hours"
-                    }
-                }
+                self?.setStatLabels(level)
             })
+        }
+    }
+    
+    func setStatLabels(_ levelProgression: LevelProgression?) {
+        if let level = levelProgression {
+            let time = level.startedAt()?.daysAndHoursSinceNow() ?? (days: 0, hours: 0)
+            
+            self.timeOnLevelLabel.text = "\(time.days) days \(time.hours) hours"
+            
+            let averageLevelUpDaysAndHours = self.statistics.averageLevelUpTime().daysAndHours()
+            self.averageLevelUpLabel.text = "\(averageLevelUpDaysAndHours.days) days \(averageLevelUpDaysAndHours.hours) hours"
+            
+            if averageLevelUpDaysAndHours.hours > time.hours {
+                self.levelUpInLabel.text = "\(averageLevelUpDaysAndHours.days - time.days) days \(averageLevelUpDaysAndHours.hours - time.hours) hours"
+            } else {
+                self.levelUpInLabel.text = "\(averageLevelUpDaysAndHours.days - time.days - 1) days \(averageLevelUpDaysAndHours.hours + 24 - time.hours) hours"
+            }
         }
     }
 
