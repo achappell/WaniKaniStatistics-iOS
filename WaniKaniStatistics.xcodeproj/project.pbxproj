@@ -12,6 +12,7 @@
 		374BCA1B2094033C00606F05 /* LessonCapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374BCA1A2094033C00606F05 /* LessonCapViewController.swift */; };
 		374BCA1E209407C600606F05 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 374BCA1C209407C600606F05 /* Model.xcdatamodeld */; };
 		374BCA2C20940AF500606F05 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374BCA2B20940AF500606F05 /* DataController.swift */; };
+		379187D82096257D00319C67 /* ModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379187D72096257D00319C67 /* ModelsTests.swift */; };
 		527A2273953EB7674FE4B5A6 /* Pods_WaniKaniStatistics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449B2B8F2391F3BBDEEC5AE8 /* Pods_WaniKaniStatistics.framework */; };
 		605FF6630CE694C136BC1F99 /* Pods_WaniKaniStatisticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348FBD97E7F1CCA840B4A9A4 /* Pods_WaniKaniStatisticsTests.framework */; };
 		C8AD4E572021077E00933548 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD4E562021077E00933548 /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 		374BCA1A2094033C00606F05 /* LessonCapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCapViewController.swift; sourceTree = "<group>"; };
 		374BCA1D209407C600606F05 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		374BCA2B20940AF500606F05 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		379187D72096257D00319C67 /* ModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsTests.swift; sourceTree = "<group>"; };
 		449B2B8F2391F3BBDEEC5AE8 /* Pods_WaniKaniStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaniKaniStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80837DE4AC463A32D0B5B10A /* Pods-WaniKaniStatisticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniKaniStatisticsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaniKaniStatisticsTests/Pods-WaniKaniStatisticsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		98AA62FA0208C739F083C1D7 /* Pods-WaniKaniStatisticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniKaniStatisticsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaniKaniStatisticsTests/Pods-WaniKaniStatisticsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			children = (
 				C8AD4E6F2021077E00933548 /* Info.plist */,
 				C8AD4E6D2021077E00933548 /* WaniKaniStatisticsTests.swift */,
+				379187D72096257D00319C67 /* ModelsTests.swift */,
 			);
 			path = WaniKaniStatisticsTests;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8AD4E6E2021077E00933548 /* WaniKaniStatisticsTests.swift in Sources */,
+				379187D82096257D00319C67 /* ModelsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

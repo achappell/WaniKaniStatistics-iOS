@@ -25,6 +25,7 @@ struct LevelProgression: Codable {
     var level: Int
     var started_at: String
     var passed_at: String?
+    var abandoned_at: String?
     
     func startedAt() -> Date? {
         let formatter = DateFormatter()
