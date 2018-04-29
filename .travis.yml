@@ -1,4 +1,5 @@
 language: swift
+osx_image: xcode9.3
 xcode_workspace: WaniKaniStatistics.xcworkspace
 xcode_scheme: WaniKaniStatistics
 
