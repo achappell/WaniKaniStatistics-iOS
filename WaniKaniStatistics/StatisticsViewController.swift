@@ -32,7 +32,7 @@ class StatisticsViewController: UIViewController, ChartViewDelegate {
             let chartDataEntry: [BarChartDataEntry] = validLevels.map({ (level) -> BarChartDataEntry in
                 return BarChartDataEntry(x: Double(level.level), y: statistics.levelUpTimeInDays(level))
             })
-            let chartSet: BarChartDataSet = BarChartDataSet(values: chartDataEntry, label: "Levels")
+            let chartSet: BarChartDataSet = BarChartDataSet(entries: chartDataEntry, label: "Levels")
             let data = BarChartData(dataSet: chartSet)
             data.barWidth = 0.9
             self?.barChartView.data = data

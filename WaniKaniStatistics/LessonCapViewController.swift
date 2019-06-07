@@ -60,7 +60,7 @@ class LessonCapViewController: UIViewController, ChartViewDelegate {
                 let (offset, entry) = arg
                 return ChartDataEntry(x: Double(offset), y: entry.score + Double(self.currentLessons) * 3)
             })
-            let dataSet = LineChartDataSet(values: dataEntries, label: "Score")
+            let dataSet = LineChartDataSet(entries: dataEntries, label: "Score")
             self.lineChartView.data = LineChartData(dataSet: dataSet)
         } catch {
             
