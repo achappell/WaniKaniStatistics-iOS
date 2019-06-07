@@ -48,7 +48,7 @@ struct StatisticsGenerator {
     func lessonCapScore(completion:((Double) -> Void)?) {
         var score: Double = 0.0
         API().assignments(level: 1) { (assignment) in
-            score = score + (Double(assignment.total_count) * 6) / 2
+            score = score +  ((Double(assignment.total_count) * 6) / 2).rounded(.toNearestOrAwayFromZero)
             
             API().assignments(level: 2) { (assignment) in
                 score = score + (Double(assignment.total_count) * 3) / 2

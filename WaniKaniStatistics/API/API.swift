@@ -10,7 +10,7 @@ import Foundation
 
 struct API {
     
-    let baseURL = "https://www.wanikani.com/api/v2"
+    let baseURL = "https://api.wanikani.com/v2"
 
     func user(completion: @escaping ((User) -> Void)) {
         if let url = URL(string: "\(baseURL)/user") {

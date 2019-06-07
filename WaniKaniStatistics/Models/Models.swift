@@ -23,11 +23,14 @@ struct UserContainer: Codable {
 
 struct LevelProgression: Codable {
     var level: Int
-    var started_at: String
+    var started_at: String?
     var passed_at: String?
     var abandoned_at: String?
     
     func startedAt() -> Date? {
+        guard let started_at = started_at else {
+            return nil
+        }
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
@@ -43,7 +46,6 @@ struct User: Codable {
 
 struct Assignment: Codable {
     var created_at: String
-    var level: Int
 }
 
 struct Summary: Codable {
