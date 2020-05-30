@@ -1,11 +1,11 @@
 language: swift
-osx_image: xcode10.2
+osx_image: xcode11.5
 xcode_workspace: WaniKaniStatistics.xcworkspace
 xcode_scheme: WaniKaniStatistics
 before_install:
   - pod repo update
 script:
-  - xcodebuild -scheme WaniKaniStatistics -workspace WaniKaniStatistics.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=12.2' build test
+  - xcodebuild -scheme WaniKaniStatistics -workspace WaniKaniStatistics.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=13.5' build test
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
