@@ -21,18 +21,18 @@ class StatisticsViewController: UIViewController, ChartViewDelegate {
         
         barChartView.delegate = self
         
-        API().levelProgressions { [weak self] (levels) in
+        API.shared.levelProgressions { [weak self] (levels) in
             let statistics = StatisticsGenerator(levels: levels)
             self?.statistics = statistics
             
             let validLevels = levels.filter({ (data) -> Bool in
-                data.abandoned_at == nil
+                data.abandoned_at == nil && data.started_at != nil
             })
             
             let chartDataEntry: [BarChartDataEntry] = validLevels.map({ (level) -> BarChartDataEntry in
                 return BarChartDataEntry(x: Double(level.level), y: statistics.levelUpTimeInDays(level))
             })
-            let chartSet: BarChartDataSet = BarChartDataSet(values: chartDataEntry, label: "Levels")
+            let chartSet: BarChartDataSet = BarChartDataSet(entries: chartDataEntry, label: "Levels")
             let data = BarChartData(dataSet: chartSet)
             data.barWidth = 0.9
             self?.barChartView.data = data

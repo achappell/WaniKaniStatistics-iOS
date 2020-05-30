@@ -33,12 +33,17 @@ class LessonCapViewController: UIViewController, ChartViewDelegate {
         
         self.statistics?.lessonCapScore(completion: { (score) in
             self.currentScore = score
-            self.lessonCapScoreLabel.text = "\(score)"
+            
+            let numberFormatter = NumberFormatter()
+            numberFormatter.maximumFractionDigits = 2
+            if let currentScoreString = numberFormatter.string(from: NSNumber(value: score)) {
+                self.lessonCapScoreLabel.text = "\(currentScoreString)"
+            }
         })
         
         self.reloadChart()
         
-        API().summary { (summary) in
+        API.shared.summary { (summary) in
             if let lesson = summary.lessons.first {
                 self.currentLessons = lesson.subject_ids.count
                 self.lessonNumberLabel.text = "\(lesson.subject_ids.count)"
@@ -60,7 +65,7 @@ class LessonCapViewController: UIViewController, ChartViewDelegate {
                 let (offset, entry) = arg
                 return ChartDataEntry(x: Double(offset), y: entry.score + Double(self.currentLessons) * 3)
             })
-            let dataSet = LineChartDataSet(values: dataEntries, label: "Score")
+            let dataSet = LineChartDataSet(entries: dataEntries, label: "Score")
             self.lineChartView.data = LineChartData(dataSet: dataSet)
         } catch {
             

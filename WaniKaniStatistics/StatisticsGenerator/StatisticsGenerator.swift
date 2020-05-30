@@ -47,28 +47,28 @@ struct StatisticsGenerator {
     
     func lessonCapScore(completion:((Double) -> Void)?) {
         var score: Double = 0.0
-        API().assignments(level: 1) { (assignment) in
+         API.shared.assignments(level: 1) { (assignment) in
             score = score + (Double(assignment.total_count) * 6) / 2
             
-            API().assignments(level: 2) { (assignment) in
+            API.shared.assignments(level: 2) { (assignment) in
                 score = score + (Double(assignment.total_count) * 3) / 2
                 
-                API().assignments(level: 3) { (assignment) in
+                API.shared.assignments(level: 3) { (assignment) in
                     score = score + (Double(assignment.total_count) * 1.04) / 2
                     
-                    API().assignments(level: 4) { (assignment) in
+                    API.shared.assignments(level: 4) { (assignment) in
                         score = score + (Double(assignment.total_count) * 0.51) / 2
                         
-                        API().assignments(level: 5) { (assignment) in
+                        API.shared.assignments(level: 5) { (assignment) in
                             score = score + (Double(assignment.total_count) * 0.14) / 2
                             
-                            API().assignments(level: 6) { (assignment) in
+                            API.shared.assignments(level: 6) { (assignment) in
                                 score = score + (Double(assignment.total_count) * 0.07) / 2
                                 
-                                API().assignments(level: 7) { (assignment) in
+                                API.shared.assignments(level: 7) { (assignment) in
                                     score = score + (Double(assignment.total_count) * 0.03) / 2
                                     
-                                    API().assignments(level: 8) { (assignment) in
+                                    API.shared.assignments(level: 8) { (assignment) in
                                         score = score + (Double(assignment.total_count) * 0.01) / 2
                                         
                                         completion?(score)

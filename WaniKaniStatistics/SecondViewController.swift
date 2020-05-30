@@ -21,18 +21,22 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        API().user { [weak self] (userData) in
+        API.shared.user { [weak self] (userData) in
             self?.user = userData
             
             self?.levelLabel.text = "\(userData.level)"
             
-            API().levelProgressions(completion: { [weak self] (levelProgressions) in
+            API.shared.levelProgressions(completion: { [weak self] (levelProgressions) in
                 
                 self?.statistics.levels = levelProgressions
                 
-                let level = levelProgressions.filter({ (data) -> Bool in
+                let currentLevelEntries = levelProgressions.filter({ (data) -> Bool in
                     data.level == userData.level && data.abandoned_at == nil
-                }).first
+                })
+                
+                let level = currentLevelEntries.sorted { (first, second) -> Bool in
+                    first.startedAt()!.compare(second.startedAt()!) == .orderedDescending
+                }.first
                 
                 self?.setStatLabels(level)
             })

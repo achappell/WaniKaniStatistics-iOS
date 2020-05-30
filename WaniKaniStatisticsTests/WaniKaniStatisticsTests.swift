@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import WaniKaniStatistics
 
 class WaniKaniStatisticsTests: XCTestCase {
     

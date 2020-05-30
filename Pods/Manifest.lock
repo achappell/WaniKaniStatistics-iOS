@@ -1,17 +1,28 @@
 PODS:
-  - Charts (3.0.5):
-    - Charts/Core (= 3.0.5)
-  - Charts/Core (3.0.5)
-  - SwiftLint (0.24.2)
+  - Charts (3.5.0):
+    - Charts/Core (= 3.5.0)
+  - Charts/Core (3.5.0)
+  - Hyperspace (3.2.1):
+    - Hyperspace/Core (= 3.2.1)
+  - Hyperspace/Core (3.2.1)
+  - SwiftLint (0.39.2)
 
 DEPENDENCIES:
   - Charts
+  - Hyperspace
   - SwiftLint
 
+SPEC REPOS:
+  trunk:
+    - Charts
+    - Hyperspace
+    - SwiftLint
+
 SPEC CHECKSUMS:
-  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
-  SwiftLint: 2aa21b96c8d13396a051bc1cb659d2ce1e0075b0
+  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
+  Hyperspace: d3604c6135e6fc89d27cf970411c944ebd14675b
+  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 23bcc412a84fcd4e46535b5ee8d6a43175bb3f49
+PODFILE CHECKSUM: c47bd951181ab35bb5c6904624a68600ab14de01
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.9.3

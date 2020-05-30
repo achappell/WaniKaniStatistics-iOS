@@ -1,0 +1,6 @@
+framework module Hyperspace {
+  umbrella header "Hyperspace-umbrella.h"
+
+  export *
+  module * { export * }
+}
