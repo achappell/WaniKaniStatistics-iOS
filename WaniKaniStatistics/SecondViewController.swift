@@ -35,7 +35,10 @@ class SecondViewController: UIViewController {
                 })
                 
                 let level = currentLevelEntries.sorted { (first, second) -> Bool in
-                    first.startedAt()!.compare(second.startedAt()!) == .orderedDescending
+                    if let firstStartedAt = first.startedAt(), let secondStartedAt = second.startedAt() {
+                        return firstStartedAt.compare(secondStartedAt) == .orderedDescending
+                    }
+                    return true
                 }.first
                 
                 self?.setStatLabels(level)

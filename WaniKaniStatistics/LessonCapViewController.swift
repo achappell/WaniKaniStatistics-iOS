@@ -14,11 +14,13 @@ class LessonCapViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet var lessonCapScoreLabel: UILabel!
     @IBOutlet var lessonNumberLabel: UILabel!
+    @IBOutlet var currentEntryLabel: UILabel!
     @IBOutlet var lineChartView: LineChartView!
     var statistics: StatisticsGenerator?
     let dataController: DataController = DataController()
     var currentScore: Double = 0
-    var currentLessons: Int = 0
+    var currentLessons: Int16 = 0
+    var entries: [LessonCapEntry]? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,12 @@ class LessonCapViewController: UIViewController, ChartViewDelegate {
             self.statistics = statistics
         }
         
+        self.refreshChart(nil)
+        
+        self.reloadChart()
+    }
+    
+    @IBAction func refreshChart(_ sender: Any?) {
         self.statistics?.lessonCapScore(completion: { (score) in
             self.currentScore = score
             
@@ -41,14 +49,14 @@ class LessonCapViewController: UIViewController, ChartViewDelegate {
             }
         })
         
-        self.reloadChart()
-        
         API.shared.summary { (summary) in
             if let lesson = summary.lessons.first {
-                self.currentLessons = lesson.subject_ids.count
+                self.currentLessons = Int16(lesson.subject_ids.count)
                 self.lessonNumberLabel.text = "\(lesson.subject_ids.count)"
             }
         }
+        
+        self.reloadChart()
     }
     
     func reloadChart() {
@@ -60,11 +68,17 @@ class LessonCapViewController: UIViewController, ChartViewDelegate {
                 }
                 return false
             }
+            self.entries = entries
             let dataEntries: [ChartDataEntry] = entries.enumerated().map({ (arg) -> ChartDataEntry in
                 
                 let (offset, entry) = arg
-                return ChartDataEntry(x: Double(offset), y: entry.score + Double(self.currentLessons) * 3)
+                return ChartDataEntry(x: Double(offset), y: entry.score + Double(entry.lessonCount) * 3, data: entry)
             })
+            
+            let dateValueFormatter = DateValueFormatter()
+            dateValueFormatter.entries = entries
+            self.lineChartView.xAxis.valueFormatter = dateValueFormatter
+            
             let dataSet = LineChartDataSet(entries: dataEntries, label: "Score")
             self.lineChartView.data = LineChartData(dataSet: dataSet)
         } catch {
@@ -78,6 +92,7 @@ class LessonCapViewController: UIViewController, ChartViewDelegate {
         let entry = NSEntityDescription.insertNewObject(forEntityName: "LessonCapEntry", into: context) as! LessonCapEntry
         entry.score = currentScore
         entry.entryDate = Date()
+        entry.lessonCount = currentLessons
         
         do {
             try context.save()
@@ -87,5 +102,28 @@ class LessonCapViewController: UIViewController, ChartViewDelegate {
         }
         
         self.reloadChart()
+    }
+    
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        if let xEntry = entries?[Int(entry.x)] {
+            self.currentEntryLabel.text = "\(dateFormatter.string(from: xEntry.entryDate!)), \(xEntry.score), \(xEntry.lessonCount)"
+        }
+    }
+    
+    func chartValueNothingSelected(_ chartView: ChartViewBase) {
+        self.currentEntryLabel.text = ""
+    }
+}
+
+class DateValueFormatter: IAxisValueFormatter {
+    var entries: [LessonCapEntry]? = nil
+    
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        let string = dateFormatter.string(from: (entries?[Int(value)].entryDate)!)
+        return string
     }
 }

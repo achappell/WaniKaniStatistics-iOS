@@ -49,7 +49,7 @@
 		98AA62FA0208C739F083C1D7 /* Pods-WaniKaniStatisticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniKaniStatisticsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaniKaniStatisticsTests/Pods-WaniKaniStatisticsTests.release.xcconfig"; sourceTree = "<group>"; };
 		A62F83905E5FF8F5243C1A2C /* Pods-WaniKaniStatistics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniKaniStatistics.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaniKaniStatistics/Pods-WaniKaniStatistics.debug.xcconfig"; sourceTree = "<group>"; };
 		C6C74BF1D31B393C1F1B571E /* Pods-WaniKaniStatistics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniKaniStatistics.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaniKaniStatistics/Pods-WaniKaniStatistics.release.xcconfig"; sourceTree = "<group>"; };
-		C8AD4E532021077E00933548 /* WaniKaniStatistics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaniKaniStatistics.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8AD4E532021077E00933548 /* WKStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8AD4E562021077E00933548 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8AD4E582021077E00933548 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		C8AD4E5A2021077E00933548 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		C8AD4E542021077E00933548 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C8AD4E532021077E00933548 /* WaniKaniStatistics.app */,
+				C8AD4E532021077E00933548 /* WKStats.app */,
 				C8AD4E692021077E00933548 /* WaniKaniStatisticsTests.xctest */,
 			);
 			name = Products;
@@ -198,7 +198,7 @@
 			);
 			name = WaniKaniStatistics;
 			productName = WaniKaniStatistics;
-			productReference = C8AD4E532021077E00933548 /* WaniKaniStatistics.app */;
+			productReference = C8AD4E532021077E00933548 /* WKStats.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C8AD4E682021077E00933548 /* WaniKaniStatisticsTests */ = {
@@ -518,11 +518,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37CAHGRH45;
+				DEVELOPMENT_TEAM = EBS5F53Z62;
 				INFOPLIST_FILE = WaniKaniStatistics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.amplifiedprojects.WaniKaniStatistics;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aljopro.WaniKaniStatistics;
+				PRODUCT_NAME = WKStats;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -538,8 +538,8 @@
 				DEVELOPMENT_TEAM = 37CAHGRH45;
 				INFOPLIST_FILE = WaniKaniStatistics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.amplifiedprojects.WaniKaniStatistics;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aljopro.WaniKaniStatistics;
+				PRODUCT_NAME = WKStats;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C8AD4E522021077E00933548"
-               BuildableName = "WaniKaniStatistics.app"
+               BuildableName = "WKStats.app"
                BlueprintName = "WaniKaniStatistics"
                ReferencedContainer = "container:WaniKaniStatistics.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8AD4E522021077E00933548"
-            BuildableName = "WaniKaniStatistics.app"
+            BuildableName = "WKStats.app"
             BlueprintName = "WaniKaniStatistics"
             ReferencedContainer = "container:WaniKaniStatistics.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8AD4E522021077E00933548"
-            BuildableName = "WaniKaniStatistics.app"
+            BuildableName = "WKStats.app"
             BlueprintName = "WaniKaniStatistics"
             ReferencedContainer = "container:WaniKaniStatistics.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8AD4E522021077E00933548"
-            BuildableName = "WaniKaniStatistics.app"
+            BuildableName = "WKStats.app"
             BlueprintName = "WaniKaniStatistics"
             ReferencedContainer = "container:WaniKaniStatistics.xcodeproj">
          </BuildableReference>
